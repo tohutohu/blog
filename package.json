@@ -1,0 +1,17 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "eject": "vuepress eject src",
+    "build": "vuepress build src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "markdown-it-footnote": "^3.0.1",
+    "vuepress": "^0.8.4"
+  }
+}
