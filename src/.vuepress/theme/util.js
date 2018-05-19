@@ -109,7 +109,6 @@ export function resolveSidebarItems (page, route, site, localePath) {
   const list = []
   pages.forEach(pa => {
     const pathList = pa.path.split('/').filter(p => p !== '')
-    console.log(pathList)
     let tmp = list
     let nowPath = ''
     let now
@@ -124,14 +123,11 @@ export function resolveSidebarItems (page, route, site, localePath) {
           collapsable: true,
           children: []
         })
-        console.log(nowPath)
         now = tmp.find(e => e.path === nowPath)
-        console.log(now)
       } 
       tmp = now.children
     })
   })
-  console.log(list)
   return [page, {title: 'これまでの記事', type: 'head'}, ...list]
 }
 
