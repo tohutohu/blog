@@ -12,6 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "markdown-it-footnote": "^3.0.1",
-    "vuepress": "^0.8.4"
+    "vuepress": "^0.10.1"
   }
 }

@@ -1,6 +1,6 @@
 ---
 title: VuePressに移行した
-category: [Vue.js VuePress tech]
+category: [Vue.js, VuePress, tech]
 ---
 # VuePressに移行した
 
