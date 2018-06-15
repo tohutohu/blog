@@ -3,15 +3,14 @@
     <NavLinks/>
     <slot name="top"/>
     <ul class="sidebar-links" v-if="items.length">
-      <li v-for="(item, i) in items">
+      <li v-for="(item, i) in items" :key="i">
         <SidebarGroup v-if="item.type === 'group'"
           :item="item"
           :first="i === 0"
           :open="i === openGroupIndex"
           :collapsable="item.collapsable"
           @toggle="toggleGroup(i)"/>
-        <div v-else-if="item.type === 'head'" class="sidebar-head">{{item.title}}</div>
-        <SidebarLink v-else :item="item"/>
+        <SidebarLink v-else :item="item || ''"/>
       </li>
     </ul>
     <slot name="bottom"/>
@@ -20,9 +19,9 @@
 
 <script>
 import SidebarGroup from './SidebarGroup.vue'
-import SidebarLink, { groupHeaders } from './SidebarLink.vue'
+import SidebarLink from './SidebarLink.vue'
 import NavLinks from './NavLinks.vue'
-import { isActive, resolveSidebarItems } from './util'
+import { isActive } from './util'
 
 export default {
   components: { SidebarGroup, SidebarLink, NavLinks },
@@ -93,14 +92,13 @@ function resolveOpenGroupIndex (route, items) {
       padding 0.5rem 0 0.5rem 1.5rem
   .sidebar-links
     padding 1.5rem 0
-  .sidebar-head
-    margin-top: 2rem
-    padding 0 1.5rem
 
 @media (max-width: $MQMobile)
   .sidebar
     .nav-links
       display block
+      .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after
+        top calc(1rem - 2px)
     .sidebar-links
       padding 1rem 0
 </style>

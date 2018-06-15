@@ -1,0 +1,10 @@
+@require './config'
+
+@media (min-width: ($MQMobile + 1px))
+  .page
+    padding-right $sidebarWidth // leftをrightに変更
+    padding-left 0 // leftをrightに変更
+  .sidebar
+    right 0  // leftをrightに変更
+    left initial
+    border-right 1px solid $borderColor // 追加

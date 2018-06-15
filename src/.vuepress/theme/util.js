@@ -1,7 +1,7 @@
 export const hashRE = /#.*$/
 export const extRE = /\.(md|html)$/
 export const endingSlashRE = /\/$/
-export const outboundRE = /^(https?:|mailto:)/
+export const outboundRE = /^(https?:|mailto:|tel:)/
 
 export function normalize (path) {
   return path
@@ -24,6 +24,10 @@ export function isMailto (path) {
   return /^mailto:/.test(path)
 }
 
+export function isTel (path) {
+  return /^tel:/.test(path)
+}
+
 export function ensureExt (path) {
   if (isExternal(path)) {
     return path
@@ -39,6 +43,7 @@ export function ensureExt (path) {
 }
 
 export function isActive (route, path) {
+  path = path || ''
   const routeHash = route.hash
   const linkHash = getHash(path)
   if (linkHash && routeHash !== linkHash) {
@@ -105,42 +110,16 @@ function resolvePath (relative, base, append) {
 }
 
 export function resolveSidebarItems (page, route, site, localePath) {
-  let pages = site.pages
-  const list = []
-  pages.forEach(pa => {
-    const pathList = pa.path.split('/').filter(p => p !== '')
-    let tmp = list
-    let nowPath = ''
-    let now
-    pathList.forEach(name => {
-      nowPath = nowPath + '/' + name
-      now = tmp.find(e => e.path === nowPath)
-      if (!now) {
-        tmp.push({
-          type: 'group',
-          title: name,
-          path: nowPath,
-          collapsable: true,
-          children: []
-        })
-        now = tmp.find(e => e.path === nowPath)
-      } 
-      tmp = now.children
-    })
-  })
-  return [page, {title: 'これまでの記事', type: 'head'}, ...list]
-}
-
-export function resolveSidebarItemsOrg (page, route, site, localePath) {
-  const pageSidebarConfig = page.frontmatter.sidebar
-  if (pageSidebarConfig === 'auto') {
-    return resolveHeaders(page)
-  }
   const { pages, themeConfig } = site
 
   const localeConfig = localePath && themeConfig.locales
     ? themeConfig.locales[localePath] || themeConfig
     : themeConfig
+
+  const pageSidebarConfig = page.frontmatter.sidebar || localeConfig.sidebar || themeConfig.sidebar
+  if (pageSidebarConfig === 'auto') {
+    return resolveHeaders(page)
+  }
 
   const sidebarConfig = localeConfig.sidebar || themeConfig.sidebar
   if (!sidebarConfig) {
