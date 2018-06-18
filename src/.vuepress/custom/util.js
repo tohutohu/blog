@@ -2,6 +2,9 @@ export function resolveSidebarItems (page, route, site, localePath) {
   let pages = site.pages
   const list = []
   pages.forEach(pa => {
+    if (pa.frontmatter.exclude) {
+      return
+    }
     let pathList = pa.path.split('/').filter(p => p !== '')
     if (pathList.length > 2) {
       pathList = pathList.slice(0, 2)
