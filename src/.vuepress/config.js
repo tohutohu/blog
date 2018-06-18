@@ -1,6 +1,6 @@
 module.exports = {
   base: '/',
-  serviceWorker: true,
+  serviceWorker: false,
   ga: 'UA-68129373-8',
   head: [
     ['link', {rel: 'icon', type: 'image/png', href: '/favicon.png'}],
