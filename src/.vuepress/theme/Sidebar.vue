@@ -10,7 +10,7 @@
           :open="i === openGroupIndex"
           :collapsable="item.collapsable"
           @toggle="toggleGroup(i)"/>
-        <SidebarLink v-else :item="item || ''"/>
+        <SidebarLink v-else :item="item"/>
       </li>
     </ul>
     <slot name="bottom"/>

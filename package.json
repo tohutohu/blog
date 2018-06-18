@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "vuepress dev src",
     "eject": "vuepress eject src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "new": "node commands/make.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "markdown-it-footnote": "^3.0.1",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.22.2",
+    "readline-sync": "^1.4.9",
     "vuepress": "^0.10.1"
   }
 }
