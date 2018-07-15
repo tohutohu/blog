@@ -61,7 +61,7 @@ const init = async () => {
 
   const template = fs.readFileSync('./commands/index-template.md').toString('utf-8')
 
-  const index = template.replace(/{{title}}/g, title).replace(/{{category}}/g, category)
+  const index = template.replace(/{{title}}/g, title).replace(/{{}}/g, category)
   fs.writeFileSync(filePath, index)
   console.log('file maked')
   process.exit(0)
