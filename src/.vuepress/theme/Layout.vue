@@ -15,7 +15,8 @@
     <Home v-else-if="$page.frontmatter.home"/>
     <Page v-else :sidebar-items="sidebarItems">
       <slot name="page-top" slot="top"/>
-      <slot name="page-bottom" slot="bottom"/>
+      <slot name="page-bottom" slot="bottom"> 
+      </slot>
     </Page>
   </div>
 </template>
@@ -30,7 +31,7 @@ import Sidebar from './Sidebar.vue'
 import { resolveSidebarItems } from '../custom/util'
 
 export default {
-  components: { Home, Page, Sidebar, Navbar },
+  components: { Home, Page, Sidebar, Navbar},
   data () {
     return {
       isSidebarOpen: false

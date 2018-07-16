@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <Content :custom="false"/>
+    <share-buttons />
     <div class="page-edit">
       <div class="edit-link" v-if="editLink">
         <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
@@ -31,9 +32,11 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
+import ShareButtons from '../components/ShareButtons.vue'
 
 export default {
   props: ['sidebarItems'],
+  components: {ShareButtons},
   computed: {
     lastUpdated () {
       if (this.$page.lastUpdated) {
