@@ -4,10 +4,10 @@
     --Share--
   </div>
   <ul class="share">
-    <li class="twitter"><a :href="`https://twitter.com/intent/tweet?url=https://to-hutohu.com${this.$page.path}&text=${this.$page.title}&via=to_hutohu`" target="_blank"><span class="entypo-twitter"></span></a></li>
-    <li class="facebook"><a :href="`https://www.facebook.com/share.php?u=https://to-hutohu.com${this.$page.path}&t=${this.$page.title}`" target="_blank"><span class="entypo-facebook"></span></a></li>
-    <li class="linkedin"><a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://to-hutohu.com${this.$page.path}&title=${this.$page.title}`" target="_blank"><span class="entypo-linkedin"></span></a></li>
-    <li class="googleplus"><a :href="`https://plus.google.com/share?url=https://to-hutohu.com${this.$page.path}`" target="_blank"><span class="entypo-gplus"></span></a></li>
+    <li class="twitter"><a :href="`https://twitter.com/intent/tweet?url=https://to-hutohu.com${this.$page.path}&text=${this.$page.title}&via=to_hutohu`" target="_blank"><i class="fab fa-twitter"></i></a></li>
+    <li class="facebook"><a :href="`https://www.facebook.com/share.php?u=https://to-hutohu.com${this.$page.path}&t=${this.$page.title}`" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+    <li class="linkedin"><a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://to-hutohu.com${this.$page.path}&title=${this.$page.title}`" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+    <li class="googleplus"><a :href="`https://plus.google.com/share?url=https://to-hutohu.com${this.$page.path}`" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
   </ul>
   </div>
 </template>
@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style>
-@import url(http://weloveiconfonts.com/api/?family=entypo);
 /* entypo */
 [class*="entypo-"]::before {
   font-family: 'entypo', sans-serif;
@@ -46,6 +45,7 @@ export default {
 .share {
   top: 50%;
   left: 50%;
+  padding-left: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: 700;
