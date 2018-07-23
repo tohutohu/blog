@@ -1,10 +1,8 @@
 version: '2'
 services:
   nginx:
-    build: ./docker/nginx
+    build: .
     container_name: blog-nginx
-    volumes:
-      - ./src/.vuepress/dist:/var/www
     environment:
       VIRTUAL_HOST: to-hutohu.com
       LETSENCRYPT_HOST: to-hutohu.com
