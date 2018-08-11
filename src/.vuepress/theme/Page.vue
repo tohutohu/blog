@@ -37,6 +37,14 @@ import ShareButtons from '../components/ShareButtons.vue'
 export default {
   props: ['sidebarItems'],
   components: {ShareButtons},
+  mounted() {
+    window.twttr.widgets.load()
+  },
+  watch: {
+    $route: () => {
+      window.twttr.widgets.load()
+    }
+  },
   computed: {
     lastUpdated () {
       if (this.$page.lastUpdated) {
