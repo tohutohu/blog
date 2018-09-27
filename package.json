@@ -16,6 +16,6 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.22.2",
     "readline-sync": "^1.4.9",
-    "vuepress": "^0.10.1"
+    "vuepress": "^0.14.4"
   }
 }
