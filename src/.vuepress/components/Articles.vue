@@ -19,6 +19,7 @@ export default {
   props: ['pages', 'prefix'],
   computed: {
     filteredPages () {
+      console.log(this.pages)
       return this.pages.filter(page => page.path.includes(this.prefix || '')).reverse()
     }
   }
