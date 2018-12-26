@@ -15,6 +15,13 @@
         <SidebarLink v-else :item="item"/>
       </li>
     </ul>
+    <div class="divider"></div>
+    <ul>
+      <li class="sidebar-heading">Category</li>
+      <li v-for="(data, key) in $categories._metaMap" class="categories" :key="key">
+        <router-link :to="data.path">{{ key }}({{ data.posts.length }})</router-link>
+      </li>
+    </ul>
     <slot name="bottom"/>
   </div>
 </template>
@@ -99,6 +106,8 @@ function resolveOpenGroupIndex (route, items) {
       padding 0.5rem 0 0.5rem 1.5rem
   .sidebar-links
     padding 1.5rem 0
+  .categories
+    padding-left 2.25rem
 
 @media (max-width: $MQMobile)
   .sidebar
