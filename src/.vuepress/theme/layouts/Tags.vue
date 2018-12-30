@@ -29,18 +29,16 @@
       />
     </Sidebar>
 
-    <Content
-      :sidebar-items="sidebarItems"
-    >
-      <slot
-        name="page-top"
-        slot="top"
-      />
-      <slot
-        name="page-bottom"
-        slot="bottom"
-      />
-    </Content>
+    <div class="page">
+      <div class="content default">
+        <h2>タグ一覧</h2>
+        <div>
+          <div v-for="(data, key) in $tags.map" :key="key">
+            <router-link :to="data.path">{{ key }}({{ data.posts.length }})</router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

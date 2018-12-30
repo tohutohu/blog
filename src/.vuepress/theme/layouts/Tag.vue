@@ -29,18 +29,12 @@
       />
     </Sidebar>
 
-    <Content
-      :sidebar-items="sidebarItems"
-    >
-      <slot
-        name="page-top"
-        slot="top"
-      />
-      <slot
-        name="page-bottom"
-        slot="bottom"
-      />
-    </Content>
+    <div class="page">
+      <div class="content default">
+        <h2>タグ: {{ $route.meta.tagName }}の記事一覧</h2>
+        <Articles :pages="$tag.posts" prefix="/"/>
+      </div>
+    </div>
   </div>
 </template>
 
