@@ -7,9 +7,7 @@ module.exports = {
       '@vuepress/google-analytics',
       { ga: 'UA-68129373-8' }
     ],
-    [
-      '@vuepress/blog'
-    ],
+    '@vuepress/blog'
   ],
   head: [
     ['link', {rel: 'icon', type: 'image/png', href: '/favicon.png'}],

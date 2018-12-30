@@ -18,7 +18,7 @@
     <div class="divider"></div>
     <ul>
       <li class="sidebar-heading">Category</li>
-      <li v-for="(data, key) in $categories._metaMap" class="categories" :key="key">
+      <li v-for="(data, key) in $categories.map" class="categories" :key="key">
         <router-link :to="data.path">{{ key }}({{ data.posts.length }})</router-link>
       </li>
     </ul>

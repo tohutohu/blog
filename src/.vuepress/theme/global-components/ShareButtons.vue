@@ -15,10 +15,6 @@
 <script>
 export default {
   name: 'ShareButtons',
-  created () {
-    console.log(this.$site)
-    console.log(this.$page)
-  },
   mounted() {
     window.twttr.widgets.load()
   },

@@ -19,7 +19,6 @@ export default {
   props: ['pages', 'prefix'],
   computed: {
     filteredPages () {
-      console.log(this.pages)
       return this.pages.filter(page => !page.path.match(/tag|category/)).sort((a, b) => {
         return (new Date(b.frontmatter.date)) - (new Date(a.frontmatter.date))
       })

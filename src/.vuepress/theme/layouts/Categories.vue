@@ -33,7 +33,7 @@
       <div class="content default">
         <h2>カテゴリー一覧</h2>
         <div>
-          <div v-for="(data, key) in $categories._metaMap" :key="key">
+          <div v-for="(data, key) in $categories.map" :key="key">
             <router-link :to="data.path">{{ key }}({{ data.posts.length }})</router-link>
           </div>
         </div>

@@ -6,14 +6,14 @@
   "scripts": {
     "dev": "vuepress dev src",
     "eject": "vuepress eject src",
-    "build": "vuepress build src",
+    "build": "NODE_ENV=developmemnt vuepress build src",
     "new": "node commands/make.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vuepress/plugin-blog": "^1.0.0-alpha.0",
-    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
+    "@vuepress/plugin-blog": "^1.0.0-alpha.30",
+    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.30",
     "markdown-it-footnote": "^3.0.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.23.0",
