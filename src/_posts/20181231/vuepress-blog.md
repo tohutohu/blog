@@ -1,6 +1,6 @@
 ---
-title: VuePressでブログを作る(VuePress 1.0.0-alpha plugin-blog使用) 
-date: 2018-12-17
+title: VuePressでブログを作る(VuePress 1.0.0-alpha30) 
+date: 2018-12-30
 categories:
   - tech
   - Vue.js

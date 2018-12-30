@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vuepress dev src",
     "eject": "vuepress eject src",
-    "build": "NODE_ENV=developmemnt vuepress build src",
+    "build": "vuepress build src",
     "new": "node commands/make.js"
   },
   "author": "",
