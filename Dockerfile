@@ -2,7 +2,7 @@ FROM node
 RUN mkdir /work
 WORKDIR /work
 COPY . /work
-RUN npm i
+RUN npm ci
 RUN npm run build
 
 FROM nginx
