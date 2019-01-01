@@ -28,6 +28,18 @@ module.exports = {
       breaks: true,
       linkify: true
     })
+    md.block.ruler.after('heading', 'after-title', state => {
+      if (state['after-title']) return false
+      const lastToken = state.tokens[state.tokens.length - 1]
+      if (lastToken.type === 'heading_close' && lastToken.tag === 'h1') {
+        state.push('after-title', '', 0)
+        state['after-title'] = true
+      }
+      return false
+    })
+    md.renderer.rules['after-title'] = () => {
+      return `<article-info />`
+    }
   },
   themeConfig: {
     nav: [
