@@ -4,11 +4,17 @@
     <h3 class="article-title">
       <router-link :to="page.path">{{page.title || 'No Title'}}</router-link>
     </h3>
-    <div class="tag-container">
-      <i class="fas fa-tags tag-icon"></i>
-      <router-link v-for="c in page.frontmatter.categories" tag="div" :to="'/category/' + c + '.html'" class="tag">{{c}}</router-link>
+    <div class="second-line">
+      <div class="published-date" v-if="page.frontmatter.date">
+        <i class="far fa-calendar calendar-icon"></i>
+        {{ page.frontmatter.date.slice(0, 10) }}
+      </div>
+      <div class="tag-container">
+        <i class="fas fa-tags tag-icon"></i>
+        <router-link v-for="c in page.frontmatter.categories" tag="div" :to="'/category/' + c + '.html'" class="tag">{{c}}</router-link>
+      </div>
+      <div v-if="page.frontmatter.description" class="article-description">{{page.frontmatter.description}}</div>
     </div>
-    <div v-if="page.frontmatter.description" class="article-description">{{page.frontmatter.description}}</div>
   </div>
 </div>
 </template>
@@ -28,6 +34,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.second-line
+  display: flex
+
+.calendar-icon
+  margin-right: 0.2em;
+
 .article-container 
   border: 2px solid #e9e9e9;
   padding: 12px;
@@ -52,7 +64,6 @@ export default {
 .tag-icon
   margin-left 1em
   margin-right 0.4em
-  font-size 0.4em
 
 .article-description
   margin-top: 6px;
