@@ -40,9 +40,6 @@ i {
   margin-right: 0.2em;
 }
 
-.published-date {
-
-}
 .updated-date {
   margin-left: 0.6em;
 }
@@ -56,8 +53,6 @@ i {
   cursor: pointer;
 }
 
-.article-category {
-}
 </style>
 
 

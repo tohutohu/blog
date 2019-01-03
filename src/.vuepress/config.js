@@ -7,7 +7,8 @@ module.exports = {
       '@vuepress/google-analytics',
       { ga: 'UA-68129373-8' }
     ],
-    '@vuepress/blog'
+    '@vuepress/blog',
+    require('./plugins/index.js'),
   ],
   head: [
     ['link', {rel: 'icon', type: 'image/png', href: '/favicon.png'}],
@@ -28,17 +29,33 @@ module.exports = {
       breaks: true,
       linkify: true
     })
+
+    const defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    }
+
+    md.renderer.rules.image = (tokens, idx, options, env, self) => {
+      if (!Array.isArray(md.$data.__data_block.images)) {
+        md.$data.__data_block.images = []
+      }
+      md.$data.__data_block.images.push(tokens[idx].attrs[0][1])
+
+      return defaultRender(tokens, idx, options, env, self)
+    }
+
     md.block.ruler.after('heading', 'after-title', state => {
       if (state['after-title']) return false
       const lastToken = state.tokens[state.tokens.length - 1]
-      if (lastToken.type === 'heading_close' && lastToken.tag === 'h1') {
+      if (lastToken && lastToken.type === 'heading_close' && lastToken.tag === 'h1') {
         state.push('after-title', '', 0)
         state['after-title'] = true
       }
       return false
     })
-    md.renderer.rules['after-title'] = () => {
+    md.renderer.rules['after-title'] = function(tokens, idx, options, env, renderer) {
+      md.$data.__data_block.po = 'popopo'
       return `<article-info />`
+
     }
   },
   themeConfig: {
