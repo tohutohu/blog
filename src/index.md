@@ -10,7 +10,6 @@ listPage: true
 
 とーふとふについてはこちら→[about](/about/)
 
-aaaaaaaaaaaaaaaa
 ## 記事一覧
 <Articles :pages="this.$site.pages"/>
 
