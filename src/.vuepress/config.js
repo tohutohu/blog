@@ -9,6 +9,7 @@ module.exports = {
     ],
     '@vuepress/blog',
     require('./plugins/index.js'),
+    require('./plugins/comments.js')
   ],
   head: [
     ['link', {rel: 'icon', type: 'image/png', href: '/favicon.png'}],

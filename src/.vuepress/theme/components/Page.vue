@@ -4,10 +4,12 @@
 
     <Content/>
 
-    <div class="page-edit">
+    <div 
+      class="page-edit"
+      v-if="editLink"
+    >
       <div
         class="edit-link"
-        v-if="editLink"
       >
         <a
           :href="editLink"
@@ -19,6 +21,7 @@
     </div>
 
     <slot name="bottom"/>
+
     <div class="page-nav" v-if="prev || next">
       <p class="inner">
         <span

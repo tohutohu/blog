@@ -10,6 +10,7 @@
         slot="bottom"
       >
         <share-buttons />
+        <Comments />
       </slot>
     </Article>
   </LayoutWrapper>
@@ -18,10 +19,11 @@
 <script>
 import LayoutWrapper from './LayoutWrapper.vue'
 import Page from '../components/Page.vue'
+import Comments from '../components/Comments.vue'
 
 export default {
   name: 'Page',
-  components: { Article:Page,  LayoutWrapper },
+  components: { Article:Page,  LayoutWrapper, Comments },
 }
 </script>
 
