@@ -22,14 +22,14 @@
             <input type="text" name="name" id="">
         </div>
         <div class="form-email">
-          <div class="label" for="email">E-mail: 
-          </div>
+          <div class="label" for="email">E-mail: </div>
             <input type="email" name="email" id="">
         </div>
         <div class="form-content">
         <div class="label" for="content">Content:</div>
-        <textarea name="content" id="" cols="30" rows="10"></textarea>
+          <textarea name="content" id="" cols="30" rows="10"></textarea>
         </div>
+        <input type="text" :value="$page.key" hidden>
         <input type="submit" value="Send">
       </form>
     </details>
