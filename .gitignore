@@ -2,6 +2,8 @@ node_modules
 .DS_Store
 
 src/.vuepress/dist
+src/.vuepress/_data/comments.json
 .vscode
 
 lambda-dist
+

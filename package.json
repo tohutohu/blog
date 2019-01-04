@@ -9,6 +9,7 @@
     "build": "vuepress build src",
     "build:lambda": "netlify-lambda build lambda",
     "dev:lambda": "netlify-lambda serve lambda",
+    "update:comments": "node ./commands/getComments.js",
     "new": "node commands/make.js"
   },
   "author": "",
