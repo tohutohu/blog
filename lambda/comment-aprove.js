@@ -2,10 +2,6 @@
 
 var request = require("request");
 
-// populate environment variables locally.
-require('dotenv').config()
-
-
 /*
   delete this submission via the api
 */

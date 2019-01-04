@@ -2,10 +2,6 @@
 
 var request = require("request");
 
-// populate environment variables locally.
-require('dotenv').config()
-
-
 /*
   Our serverless function handler
 */
