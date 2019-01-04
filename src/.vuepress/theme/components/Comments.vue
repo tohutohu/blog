@@ -29,6 +29,7 @@
           <textarea name="content" id="" cols="30" rows="10"></textarea>
         </div>
         <input type="hidden" name="pageKey" :value="$page.key">
+        <input type="hidden" name="path" :value="$route.path">
         <input type="hidden" name="form-name" value="suspendedComments">
         <div>コメントは承認されると表示されます</div>
         <input type="submit" value="Send">
