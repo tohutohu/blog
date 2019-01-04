@@ -3,3 +3,5 @@ node_modules
 
 src/.vuepress/dist
 .vscode
+
+lambda-dist

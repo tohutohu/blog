@@ -44,9 +44,6 @@ export default {
     format(val) {
       return (new Date(val)).toLocaleString()
     }
-  },
-  created () {
-    console.log(this)
   }
 }
 </script>

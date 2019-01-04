@@ -1,11 +1,9 @@
-'use strict';
-
 var request = require("request");
 
 /*
   Our serverless function handler
 */
-exports.handler = (event, context, callback) => {
+exports.handler = function(event, context, callback) {
 
   // get the arguments from the notification
   var body = JSON.parse(event.body);

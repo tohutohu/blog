@@ -1,5 +1,3 @@
-'use strict';
-
 var request = require("request");
 
 /*
@@ -20,7 +18,7 @@ function purgeComment(id) {
 /*
   Handle the lambda invocation
 */
-exports.handler = (event, context, callback) => {
+exports.handler = function (event, context, callback) {
 
   // parse the payload
   var body = event.body.split("payload=")[1];
@@ -48,13 +46,13 @@ exports.handler = (event, context, callback) => {
 
         // now we have the data, let's massage it and post it to the approved form
         var payload = {
-          'form-name': "approved-comments",
+          'form-name': "approvedComments",
           'path': data.path,
           'pageKey': data.pageKey,
-          'received': new Date().toString(),
+          'received': new Date(),
           'email': data.email,
           'name': data.name,
-          'comment': data.comment
+          'content': data.content
         };
         var approvedURL = process.env.URL;
 
@@ -62,7 +60,13 @@ exports.handler = (event, context, callback) => {
         console.log(payload);
 
         // post the comment to the approved lost
-        request.post({ 'url': approvedURL, 'formData': payload }, function (err, httpResponse, body) {
+        request.post({
+          url: approvedURL, 
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded",
+          },
+          form: payload 
+        }, function (err, httpResponse, body) {
           var msg;
           if (err) {
             msg = 'Post to approved comments failed:' + err;
