@@ -5,7 +5,7 @@ var request = require("request");
 /*
   Our serverless function handler
 */
-module.exports.handler = (event, context, callback) => {
+exports.handler = (event, context, callback) => {
 
   // get the arguments from the notification
   var body = JSON.parse(event.body);
