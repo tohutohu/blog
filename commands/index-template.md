@@ -1,6 +1,8 @@
 ---
 title: {{title}}
-category: [{{}}]
+date: {{date}}
+categories:
+{{categories}}
 ---
 
 # {{title}}

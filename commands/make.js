@@ -41,27 +41,29 @@ const inputTitle = async () => {
 }
 
 const inputCategory = async () => {
-  print('Prease input category:  ')
-  return await waitInput()
+  categories = []
+  while(true) {
+    print('Prease input category (if empty, end input.):  ')
+    const input = await waitInput()
+    if (input === '') {
+      break
+    }
+    categories.push('  - ' + input)
+  }
+  return categories.join('\n')
 }
 
 const init = async () => {
   const date = await inputDate()
   const title = await inputTitle()
-  const category = await inputCategory()
-  const dirPath = './src/' + date.format('YYYY/MM/DD/') + title
-  const yearListPath = './src/' + date.format('YYYY') + '/index.md'
-  const monthListPath = './src/' + date.format('YYYY/MM')+ '/index.md'
-  const filePath = dirPath + '/index.md'
+  const categories = await inputCategory()
+  const dirPath = './src/_posts/' + date.format('YYYYMMDD/')
+  const filePath = dirPath + `${title}.md`
   mkdirp.sync(dirPath, 0755)
-
-  const listTemplate = fs.readFileSync('./commands/list-template.md').toString('utf-8')
-  fs.writeFileSync(yearListPath, listTemplate.replace(/{{time}}/g, date.format('YYYY') + '年'))
-  fs.writeFileSync(monthListPath, listTemplate.replace(/{{time}}/g, date.format('M') + '月'))
 
   const template = fs.readFileSync('./commands/index-template.md').toString('utf-8')
 
-  const index = template.replace(/{{title}}/g, title).replace(/{{}}/g, category)
+  const index = template.replace(/{{title}}/g, title).replace(/{{categories}}/g, categories).replace(/{{date}}/, date.format('YYYY-MM-DD'))
   fs.writeFileSync(filePath, index)
   console.log('file maked')
   process.exit(0)
