@@ -1,8 +1,5 @@
 var request = require("request");
 
-/*
-  Our serverless function handler
-*/
 exports.handler = function(event, context, callback) {
 
   // get the arguments from the notification
@@ -14,9 +11,9 @@ exports.handler = function(event, context, callback) {
     "text": "New comment on " + process.env.URL,
     "attachments": [
       {
-        "fallback": "New comment on the comment example site",
+        "fallback": "New comment",
         "color": "#444",
-        "author_name": body.data.email,
+        "author_name": body.data.name + ' ' + body.data.email,
         "title": body.data.path,
         "title_link": process.env.URL + body.data.path,
         "text": body.data.content

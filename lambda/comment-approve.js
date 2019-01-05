@@ -1,8 +1,5 @@
 var request = require("request");
 
-/*
-  delete this submission via the api
-*/
 function purgeComment(id) {
   var url = `https://api.netlify.com/api/v1/submissions/${id}?access_token=${process.env.API_AUTH}`;
   request.delete(url, function (err, response, body) {
@@ -85,6 +82,5 @@ exports.handler = function (event, context, callback) {
         });
       }
     });
-
   }
 }
