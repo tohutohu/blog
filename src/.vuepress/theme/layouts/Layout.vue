@@ -1,22 +1,16 @@
 <template>
   <LayoutWrapper>
-    <Home v-if="$page.frontmatter.home"/>
-
-    <Article
-      v-else
-    >
-    </Article>
+    <Article />
   </LayoutWrapper>
 </template>
 
 <script>
 import LayoutWrapper from './LayoutWrapper.vue'
-import Home from '../components/Home.vue'
 import Page from '../components/Page.vue'
 
 export default {
   name: 'Layout',
-  components: { Home, Article:Page, LayoutWrapper },
+  components: { Article:Page, LayoutWrapper },
 }
 </script>
 

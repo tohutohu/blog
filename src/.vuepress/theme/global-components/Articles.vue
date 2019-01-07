@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div v-for="page in filteredPages" class="article-container" v-if="!page.frontmatter.exclude">
+  <div v-for="page in filteredPages" class="article-container" :key="page.key">
     <h3 class="article-title">
       <router-link :to="page.path">{{page.title || 'No Title'}}</router-link>
     </h3>
@@ -11,7 +11,7 @@
       </div>
       <div class="tag-container">
         <i class="fas fa-tags tag-icon"></i>
-        <router-link v-for="c in page.frontmatter.categories" tag="div" :to="'/category/' + c + '.html'" class="tag">{{c}}</router-link>
+        <router-link v-for="c in page.frontmatter.categories" tag="div" :key="c" :to="'/category/' + c + '.html'" class="tag">{{c}}</router-link>
       </div>
       <div v-if="page.frontmatter.description" class="article-description">{{page.frontmatter.description}}</div>
     </div>
@@ -23,9 +23,12 @@
 export default {
   name: 'Articles',
   props: ['pages', 'prefix'],
+  mounted () {
+    console.log(this.filteredPages)
+  },
   computed: {
     filteredPages () {
-      return this.pages.filter(page => !page.path.match(/tag|category/)).sort((a, b) => {
+      return this.pages.filter(page => !page.frontmatter.exclude && !page.path.match(/tag|category/)).sort((a, b) => {
         return (new Date(b.frontmatter.date)) - (new Date(a.frontmatter.date))
       })
     }
