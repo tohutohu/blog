@@ -4,7 +4,7 @@ const path = require('path')
 
 const formsUrl = `https://api.netlify.com/api/v1/forms?access_token=${process.env.API_AUTH}`;
 request(formsUrl, (err, res, data) => {
-  const id = JSON.parse(data).find(e => e.name === 'approvedComments').id
+  const id = JSON.parse(data).find(e => e.name === 'suspendedComments').id
   const url = `https://api.netlify.com/api/v1/forms/${id}/submissions/?access_token=${process.env.API_AUTH}`;
 
   request(url, (err, res, data) => {

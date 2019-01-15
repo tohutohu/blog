@@ -29,7 +29,13 @@ exports.handler = function (event, context, callback) {
       statusCode: 200,
       body: "Comment deleted"
     });
+    request.post("https://api.netlify.com/build_hooks/5c2f737adeba430170f5e7c9");
   } else if (method == "approve") {
+    callback(null, {
+      statusCode: 200,
+      body: "OK"
+    });
+  } else {
 
     // get the comment data from the queue
     var url = `https://api.netlify.com/api/v1/submissions/${id}?access_token=${process.env.API_AUTH}`;
