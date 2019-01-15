@@ -59,10 +59,7 @@ exports.handler = function (event, context, callback) {
         // post the comment to the approved lost
         request.post({
           url: approvedURL, 
-          headers: {
-            "Content-type": "application/x-www-form-urlencoded",
-          },
-          form: payload 
+          formData: payload 
         }, function (err, httpResponse, body) {
           var msg;
           if (err) {
