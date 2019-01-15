@@ -73,6 +73,7 @@ exports.handler = function (event, context, callback) {
             console.log(msg);
             purgeComment(id);
           }
+          console.log(body)
           var msg = "Comment registered. Site deploying to include it.";
           callback(null, {
             statusCode: 200,
